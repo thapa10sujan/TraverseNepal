@@ -6,10 +6,12 @@
  PHASE I
 
 - [] Login
- - [] User
+     - [] User
+
 
 - [] Register
-  - [] User
+      - [] User
+
 
   
 ### Built With
