@@ -2,17 +2,34 @@ const express = require('express')
 require('dotenv').config()
 const connection = require('./db/connection')
 const Users = require('./models/users')
+const cors = require('cors')
 connection()
 const app = express()
-const port = process.env.port
+app.use(cors())
+const port = process.env.PORT
 app.use(express.json())
 
-app.post('/register', (req, res) => {
- Users.create(req.body)
+ 
+app.post('/register', async(req, res) => {
+ await Users.create(req.body)
  res.json({
- msg: "registered successfully"
+ msg: "You are successfully Registered"
  })
 })
+
+ app.get('/checkUserExists/:phoneNumber',async(req,res)=>{
+   const data = await Users.findOne({phoneNumber:req.params.phoneNumber});
+   if(data){
+   res.json({
+    msg: "Phone Number already exists"
+   })
+ }else[
+    res.json({
+        validPhoneNo: true
+    })
+ ]
+})
+ 
  
 // app.get('/products', async(req, res) => {
 //  const data = await Products.find()

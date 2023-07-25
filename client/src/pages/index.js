@@ -1,16 +1,11 @@
 import React from 'react'
-
-function Home() {
+import Header from '../components/Header';
+export default function home() {
   return (
-    <div>
-      <div className='nav'>
-    
-      TRAVERSE NEPAL
-
-      </div>
-      
-      </div>
+    <>
+    <Header/>
+    </>
   )
 }
 
-export default Home
+  
