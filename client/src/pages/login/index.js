@@ -3,6 +3,8 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import Link from 'next/link'
  import Header from '../../components/Header'
+ 
+
 const Login = () => {
     const LoginSchema = Yup.object().shape({
       email: Yup.string().email('Invalid email').required('Required'),
@@ -12,6 +14,7 @@ const Login = () => {
         <>
         <Header/>
       <div className='container'> 
+
       <div className="app--login">
         <h2>Please Login</h2>
         <Formik
@@ -37,7 +40,9 @@ const Login = () => {
        </Formik>
         <p>Don't have an account? <Link href="/register">Sign up</Link></p>
       </div>
+      
       </div>
+
       </>
     )
   }

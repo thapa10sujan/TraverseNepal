@@ -9,7 +9,7 @@ body{
 
 /* HEADER CSS STARTS */
 header{
-  background-color: #000;
+  background-color: rgb(199, 0, 0);
   padding: 10px 0;
   color:#fff;
   /* position: fixed; */

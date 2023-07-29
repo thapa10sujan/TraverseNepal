@@ -6,6 +6,7 @@ import { Button, message } from 'antd';
 import { useRouter } from 'next/navigation';
 import Header from '../../components/Header';
 
+
 const Register = () => {
   const router = useRouter()
   const [msg, contextHolder] = message.useMessage();  
@@ -47,7 +48,7 @@ const Register = () => {
 
     return(
         <div>
-        <Header/>
+       
         {contextHolder}
         <Header/>
         <div className='container '> 
