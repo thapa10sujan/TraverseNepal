@@ -42,7 +42,3 @@ To run this project, you need to have the following software installed on your c
 * Next.js
 * React.js
 
-
-
-
-

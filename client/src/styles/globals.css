@@ -1,15 +1,26 @@
-body{
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap");
+
+  body{
   margin:0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif; 
+  background-color: #7a7a7a;
+ 
+} 
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.container{
+
+ .container{
   max-width: calc(1140px);
   margin: auto;
-}
+} 
 
 /* HEADER CSS STARTS */
 header{
-  background-color: rgb(199, 0, 0);
+  background-color: rgb(20, 20, 20);
   padding: 10px 0;
   color:#fff;
   /* position: fixed; */
@@ -27,8 +38,9 @@ nav{
 
 }
 .logo img{
-  max-width: 250px;
+  max-width: 200px;
   height: 100px;
+
 }
 ul.nav-menus{
   display: flex;
@@ -48,7 +60,7 @@ ul.nav-menus li{
   margin-bottom: 0;
 }
 ul.nav-menus li a{
-  color:#fff;
+  color:#b4b4b4d5;
   text-decoration: none;
   font-weight: 500;
   line-height: 16px;
@@ -59,17 +71,88 @@ ul.nav-menus li a{
 ul.nav-menus li a.active,
 ul.nav-menus li a:hover{
   color: rgb(0, 0, 0);
-  background-color: rgb(255, 255, 255);
+  background-color: #fff;
 }
+
+
+.search {
+  width: 100%;
+  max-width: 300px;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--white);
+  border-radius: 2rem;
+  transition: 0.3s;
+}
+
+
+
 /* HEADER CSS ENDS */
 
 /*  */
 /* BANNER CSS STARTS */
-.hero{
-  background-size: cover;
-  width: 100%;
-  height: 100vh;
+
+
+
+
+
+
+.content h1 {
+  margin-bottom: 1rem;
+  font-size: 3.4rem;
+  font-weight: 800;
+  color:#fff;
+  max-width: 250px;
+  max-height: 250px;
+ 
+  
 }
+
+.content h1 span {
+  -webkit-text-stroke:#fff;
+  -webkit-text-fill-color: #000000
+  
+}
+
+
+.content p {
+  max-width: 350px;
+  margin-bottom: 2rem;
+  line-height: 1.5rem;
+  color:#000;
+  
+}
+
+
+
+
+.content .btn {
+  padding: 0.75rem 2rem;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  color: black;
+  background-color: rgba(219, 213, 213, 0.562);
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .request--box{
   background-color: #fff;
     padding: 20px 40px;
@@ -122,6 +205,72 @@ button[type="submit"]:hover{
   opacity: 0.5;
 }
 /* BANNER CSS ENDS */
+
+
+
+  .destination__container {
+    position: relative;
+    padding: 5rem 0 5rem 5rem;
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    align-items: center;
+ } 
+
+
+
+
+
+.destination__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.destination__card image {
+  width: 100%;
+}
+
+.destination__card {
+ 
+  background-color:rgba(219, 213, 213, 0.562);
+  box-shadow: 2px 2px 20px rgb(0, 0, 0);
+}
+
+.card__content {
+  padding: 1rem;
+}
+
+.card__content h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #000;
+}
+
+.card__content p {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.5rem;
+  color: #000000;
+}
+ 
+
+.card__content .btn {
+  padding: 0.5rem 1rem;
+  outline: none;
+  border: none;
+  font-weight: 500;
+  color:#000;
+  background-color: rgba(77, 76, 76, 0.562);
+  cursor: pointer;
+}
+
+
+
+
+
 /*  */
 
 /* LOGIN PAGE CSS STARTS */
