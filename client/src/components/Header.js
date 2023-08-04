@@ -3,10 +3,24 @@
 import Image from 'next/image'
 import Logo from '@/images/TNLOGO.png'
 import { useSelector } from 'react-redux'
-import { Avatar, Space } from 'antd';
+import { useRouter } from 'next/router';
+import { Avatar, Space, Popover } from 'antd';
+import Link from 'next/link';
+
 
  export default function Header() {
-  const {isLoggedIn, userDetails} = useSelector(state=>state.users)
+   const router =useRouter()
+   const handleLogout =()=>{
+     router.push('/profile')
+   }
+   const {isLoggedIn, userDetails} = useSelector(state=>state.users)
+  const content = (
+     <div>
+  
+      <Link href="/profile">Profile</Link>
+       <p onClick={handleLogout}>Logout</p>
+    </div>
+  );
   
   return (
    <header>
@@ -18,20 +32,27 @@ import { Avatar, Space } from 'antd';
         </div>
 
         {isLoggedIn?(
-
-<Avatar
-size="large"
-style={{
-backgroundColor: '#b4b4b4d5',
-color: '#000',
-marginTop:'33px',
-fontSize: '1.5rem',
-marginRight: '10px'
-}}
->
-U
-</Avatar>  
+          <div>
+             
+        
+        <Popover placement="bottom" title={userDetails.fullName} content={content} trigger="click">
+       
+        <Avatar
+       size="large"
+       style={{
+       backgroundColor: '#fde3cf',
+       color: '#f56a00',
+       marginTop:'33px',
+       fontSize: '1.5rem',
+       marginRight: '10px'
+       }}
+       >
+      {userDetails.fullName[0]}
+       </Avatar>
+       </Popover>
+       </div>
          
+  
          ): <ul className="nav-menus">
           
         <li className="link"><a href="#">Home</a></li>
