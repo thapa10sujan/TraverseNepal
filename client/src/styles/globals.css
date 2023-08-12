@@ -175,7 +175,7 @@ form input{
   display: block;
   margin:15px 0;
 	padding:15px 10px;
-	width:100%;
+	width:40%;
 	outline:none;
 	border:1px solid #bbb;
 	border-radius:20px;
@@ -234,7 +234,7 @@ button[type="submit"]:hover{
 
 .destination__card {
  
-  background-color:rgba(219, 213, 213, 0.562);
+  background-color:#aaaaaa;
   box-shadow: 2px 2px 20px rgb(0, 0, 0);
 }
 
@@ -263,7 +263,7 @@ button[type="submit"]:hover{
   border: none;
   font-weight: 500;
   color:#000;
-  background-color: rgba(77, 76, 76, 0.562);
+  background-color: rgba(201, 200, 200, 0.562);
   cursor: pointer;
 }
 

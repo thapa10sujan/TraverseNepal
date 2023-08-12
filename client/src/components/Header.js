@@ -41,7 +41,8 @@ import Link from 'next/link';
        size="large"
        style={{
        backgroundColor: '#fde3cf',
-       color: '#f56a00',
+       color: 'black',
+       backgroundColor: 'grey',
        marginTop:'33px',
        fontSize: '1.5rem',
        marginRight: '10px'

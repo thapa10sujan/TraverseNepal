@@ -1,14 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
-import { Card } from 'antd';
-import CustomModal from '@/components/Modal';
+import { Card, Modal } from 'antd';
+
 
 const Profile = () => {
   const {userDetails}= useSelector(state=>state.users)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const handleSubmit=()=>{
+    alert ("submit")
+  }
 
    return(
   <Card title="Your Profile">
-    <CustomModal/>
     <Card type="inner" title="User Details" extra={<a href="#">Edit</a>}>
      Full Name : {userDetails.fullName} <br/>
      Email : {userDetails.email} <br/>
@@ -23,9 +26,14 @@ const Profile = () => {
       title="Account Security"
       extra={<a href="#">More</a>}
     >
-      Change Password <br/>
+      <span onClick={()=>setIsModalOpen(true)}> Change Password</span><br/>
       Delete Your Account
     </Card>
+    <Modal title="Basic Modal" open={isModalOpen} onOk={handleSubmit}   onCancel={()=>setIsModalOpen(false)}>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+      </Modal>
   </Card>
 )};
 export default Profile;
