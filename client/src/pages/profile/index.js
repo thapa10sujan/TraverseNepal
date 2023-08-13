@@ -37,15 +37,15 @@ const ChangePassForm = () => {
     >
       {({ errors, touched }) => (
         <Form>
-          <Field name="currentPassword" />
+          <Field name="currentPassword" type="password" placeholder="Current password" />
           {errors.currentPassword && touched.currentPassword ? (
             <div>{errors.currentPassword}</div>
           ) : null}
-          <Field name="newPassword" />
+          <Field name="newPassword" type="password" placeholder="New password" />
           {errors.newPassword && touched.newPassword ? (
             <div>{errors.newPassword}</div>
           ) : null}
-          <Field name="confirmNewPassword"  />
+          <Field name="confirmNewPassword"  type="password" placeholder=" Confirm New password"  />
           {errors.confirmNewPassword && touched.confirmNewPassword ? <div>{errors.confirmNewPassword}</div> : null}
           <button type="submit">Submit</button>
         </Form>
