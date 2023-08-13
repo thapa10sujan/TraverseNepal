@@ -2,23 +2,25 @@
  import React from 'react'
 import Image from 'next/image'
 import Logo from '@/images/TNLOGO.png'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/router';
+import { handleLogout } from '@/redux/reducerSlice/user';
 import { Avatar, Space, Popover } from 'antd';
 import Link from 'next/link';
 
 
- export default function Header() {
-   const router =useRouter()
-   const handleLogout =()=>{
-     router.push('/profile')
-   }
-   const {isLoggedIn, userDetails} = useSelector(state=>state.users)
+export default function Header() {
+  const router =useRouter()
+  const dispatch = useDispatch()
+  const userLogout =()=>{
+    dispatch(handleLogout())
+  }
+  const {isLoggedIn, userDetails} = useSelector(state=>state.users)
   const content = (
-     <div>
+    <div>
   
       <Link href="/profile">Profile</Link>
-       <p onClick={handleLogout}>Logout</p>
+      <p onClick={userLogout}>Logout</p>
     </div>
   );
   

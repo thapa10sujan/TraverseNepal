@@ -33,7 +33,48 @@ const saltRounds = 10
         }catch(err){
             console.log(err)
         }
+    
+    }
+
+   
+
+
+
+    const loginUser=  async(req, res) => {
+        try{
+           
+               
+                const data= await Users.findOne({phoneNumber: req.body.phoneNumber})
+                if(data){
+                    const isMatched = await bcrypt.compare(req.body.password, data.password)
+                    if (isMatched) {
+                        const token = jwt.sign({ phoneNumber:req.body.phoneNumber}, process.env.SECRET_KEY)
+                        res.json({
+                            token:token,
+                            success: true,
+                            userDetails: data
+                    })
+                } else {
+                    res.json({
+                        success: false,
+                        msg: "Password didn't matched"
+                    })
+                }
+
+
+                }else{
+                    res.json({
+                        success: false,
+                        msg: "user doesn't exist"
+                    })
+                }
+          
+        }catch(err){
+            console.log(err)
+        }
       
     }
 
-    module.exports = {registerUser}
+
+
+    module.exports = {registerUser, loginUser}

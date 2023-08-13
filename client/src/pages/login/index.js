@@ -3,15 +3,48 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import Link from 'next/link'
  import Header from '../../components/Header'
+ import { setUserDetails } from '@/redux/reducerSlice/user';
+import { useDispatch } from 'react-redux';
+import { useRouter } from 'next/navigation';
+import { Button, message, Space } from 'antd';
+
  
 
 const Login = () => {
+  const router = useRouter()
+  const [msg, contextHolder] = message.useMessage();  
+  const dispatch = useDispatch()
+    const handleLogin=async(values)=>{
+      try{
+      const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(values)
+    };
+    const res = await fetch('http://localhost:4000/login',requestOptions)
+    const data = await res.json()
+     if(data && data.success && res.status==200){
+
+      dispatch(setUserDetails(data))
+      router.push('/')
+        msg.info(data.msg);
+     }else{
+      msg.info(data.msg);
+     }
+      
+  }catch(err){
+    msg.info('Something went wrong');
+    }
+    }
+
+    
     const LoginSchema = Yup.object().shape({
       email: Yup.string().email('Invalid email').required('Required'),
       password: Yup.string().required('Required')
     });
     return(
         <>
+        {contextHolder}
         <Header/>
       <div className='container'> 
 
@@ -25,7 +58,7 @@ const Login = () => {
          validationSchema={LoginSchema}
          onSubmit={values => {
            // same shape as initial values
-           console.log(values);
+           handleLogin(values);
          }}
        >
          {({ errors, touched }) => (
